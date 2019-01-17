@@ -1,0 +1,18 @@
+---
+- hosts: controlserver
+  become: yes
+  tasks:
+   - name: Install java-1.7.0-openjdk
+     yum:
+      name: java-1.7.0-openjdk
+      state: installed
+   - name: Add Jenkins Repo
+     yum_repository:
+      name: jenkins
+      description: Jenkins YUM REPO
+      baseurl: http://pkg.jenkins.io/redhat
+   - name: Install Jenkins
+     yum:
+       name: jenkins
+       state: installed
+       disable_gpg_check: yes
