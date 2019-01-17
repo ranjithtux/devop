@@ -1,0 +1,7 @@
+---
+- hosts: ganesh
+  tasks:
+  - name: install php 71
+    yum:
+     name: ea-php71
+     state: installed
